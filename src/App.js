@@ -3,12 +3,12 @@ import "./App.css";
 import { useState } from "react";
 import { addnewtask, deletetask, updatetask } from "./JS/TaskSlice";
 function App() {
-  const [valueinput, setvalueinput] = useState({ name: "" });
+  const [valueinput, setvalueinput] = useState({id:"4",  name: "" });
   const dispatch = useDispatch();
   const data = useSelector((store) => store.task);
   const [show, setshow] = useState(false);
   const [inputupdate, setinputupdate] = useState();
-  console.log(data);
+  console.log(inputupdate);
 
   return (
     <div className="center">
@@ -16,7 +16,7 @@ function App() {
       <div className="txt">Add task:</div><input
         type="text"
         onChange={(e) => {
-          setvalueinput({ name: e.target.value });
+          setvalueinput({ ...valueinput,name: e.target.value });
         }}
       ></input>
       <button className="bouton" onClick={() => dispatch(addnewtask(valueinput))}>Add</button></div>

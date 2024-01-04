@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState =[{id:"1",name:"Acheter"},{id:"2",name:"Naviger"},{id:"2",name:"Devlopper"},{id:"3",name:"Jouer"}] 
+const initialState =[{id:"1",name:"Acheter"},{id:"2",name:"Naviger"},{id:"3",name:"Devlopper"},{id:"3",name:"Jouer"}] 
  
 
 
@@ -15,7 +15,8 @@ export const Taskslice = createSlice({
       return state.filter((el)=>el.name !==action.payload)
     },
     updatetask:(state,action)=>{
-      return state.map((el)=>(el.id===action.id ? el.name=action.payload : null))
+      console.log(action)
+      return state.map((el)=>(el.id===action.payload.id? el=action.payload : el))
     }
    
   },
